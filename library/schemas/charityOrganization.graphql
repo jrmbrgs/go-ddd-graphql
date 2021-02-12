@@ -1,0 +1,20 @@
+type CharityOrganization {
+  id: String!
+  name: String!
+  charityOrganizationTags: [CharityOrganizationTag]
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input NewCharityOrganization {
+  name: String!
+  charityOrganizationTagIDs: [Int]
+}
+
+extend type Mutation {
+  createNewCharityOrganization(input: NewCharityOrganization!): Human!
+}
+
+extend type Query {
+  fetchOneCharityOrganization(id: String!): CharityOrganization
+}

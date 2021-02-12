@@ -1,0 +1,19 @@
+type Human {
+  id: String!
+  name: String!
+  offenses: [Offense]
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input NewHuman {
+  name: String!
+}
+
+extend type Mutation {
+  createNewHuman(input: NewHuman!): Human!
+}
+
+extend type Query {
+  fetchOneHuman(id: String!): Human
+}

@@ -1,0 +1,22 @@
+type OffenseCategory {
+  id: String!
+  label: String!
+  description: String!
+  parentId: String
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input NewOffenseCategory {
+  label: String!
+  description: String!
+  parentId: String
+}
+
+extend type Mutation {
+  createNewOffenseCategory(input: NewOffenseCategory!): OffenseCategory!
+}
+
+extend type Query {
+  fetchAllOffenseCategories: [OffenseCategory]!
+}

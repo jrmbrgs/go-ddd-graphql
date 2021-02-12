@@ -1,0 +1,20 @@
+type Offense {
+  id: String!
+  humanId: String!
+  human: Human!
+  info: String!
+  offenseCategoryID: String! 
+  offenseCategory: OffenseCategory!
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+input NewOffense {
+  humanId: String!
+  info: String!
+  categoryId: String!
+}
+
+type Mutation {
+  createNewOffense(input: NewOffense!): Offense!
+}
