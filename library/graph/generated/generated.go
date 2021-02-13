@@ -498,7 +498,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "library/schemas/charityOrganization.graphql", Input: `type CharityOrganization {
+	{Name: "library/graph/schemas/charityOrganization.graphql", Input: `type CharityOrganization {
   id: String!
   name: String!
   charityOrganizationTags: [CharityOrganizationTag]
@@ -518,7 +518,7 @@ extend type Mutation {
 extend type Query {
   fetchOneCharityOrganization(id: String!): CharityOrganization
 }`, BuiltIn: false},
-	{Name: "library/schemas/charityOrganizationTag.graphql", Input: `type CharityOrganizationTag {
+	{Name: "library/graph/schemas/charityOrganizationTag.graphql", Input: `type CharityOrganizationTag {
   id: String!
   label: String!
   description: String!
@@ -539,7 +539,7 @@ type Query {
   fetchAllCharityOrganizationTags: [CharityOrganizationTag]!
 }
 `, BuiltIn: false},
-	{Name: "library/schemas/human.graphql", Input: `type Human {
+	{Name: "library/graph/schemas/human.graphql", Input: `type Human {
   id: String!
   name: String!
   offenses: [Offense]
@@ -558,7 +558,7 @@ extend type Mutation {
 extend type Query {
   fetchOneHuman(id: String!): Human
 }`, BuiltIn: false},
-	{Name: "library/schemas/offense.graphql", Input: `type Offense {
+	{Name: "library/graph/schemas/offense.graphql", Input: `type Offense {
   id: String!
   humanId: String!
   human: Human!
@@ -579,7 +579,7 @@ type Mutation {
   createNewOffense(input: NewOffense!): Offense!
 }
 `, BuiltIn: false},
-	{Name: "library/schemas/offenseCategory.graphql", Input: `type OffenseCategory {
+	{Name: "library/graph/schemas/offenseCategory.graphql", Input: `type OffenseCategory {
   id: String!
   label: String!
   description: String!
@@ -602,7 +602,7 @@ extend type Query {
   fetchAllOffenseCategories: [OffenseCategory]!
 }
 `, BuiltIn: false},
-	{Name: "library/schemas/schema.graphql", Input: `scalar Time
+	{Name: "library/graph/schemas/schema.graphql", Input: `scalar Time
 `, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
